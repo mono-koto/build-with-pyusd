@@ -3,6 +3,7 @@ pragma solidity 0.8.23;
 
 import {ERC721} from "solmate/tokens/ERC721.sol";
 import {ERC20} from "solmate/tokens/ERC20.sol";
+import {Renderer} from "./Renderer.sol";
 
 contract HelloPYUSD is ERC721 {
     uint256 public totalIssued;
@@ -20,7 +21,7 @@ contract HelloPYUSD is ERC721 {
         _mint(msg.sender, ++totalIssued);
     }
 
-    function tokenURI(uint256) public pure override returns (string memory) {
-        return "";
+    function tokenURI(uint256 tokenId) public pure override returns (string memory) {
+        return Renderer.tokenURI(tokenId);
     }
 }
