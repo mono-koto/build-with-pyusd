@@ -77,7 +77,7 @@ library Renderer {
         if (v == 4) return "purple";
         if (v == 5) return "fuscia";
         if (v == 6) return "pink";
-        if (v == 7) return "cyan";
+        else return "cyan";
     }
 
     function styles() public pure returns (bytes memory) {
