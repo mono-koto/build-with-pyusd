@@ -5,12 +5,12 @@ import {LibString} from "solady/Milady.sol";
 import {Base64} from "solady/Milady.sol";
 
 library Renderer {
-    function tokenURI(uint256 tokenId) public pure returns (string memory) {
+    function tokenURI(uint256 tokenId) internal pure returns (string memory) {
         bytes memory jsonData = abi.encodePacked(
             '{"name": "HIPYUSD #',
             LibString.toString(tokenId),
             '",',
-            '"description": "HelloPYUSD is an NFT contract you can mint with PYUSD!",',
+            '"description": "Open edition, onchain art celebrating PYUSD. 1 PYUSD per mint",',
             '"image": "',
             abi.encodePacked("data:image/svg+xml;base64,", Base64.encode(svg(tokenId))),
             '"}'
@@ -19,7 +19,7 @@ library Renderer {
         return string(abi.encodePacked("data:application/json;base64,", Base64.encode(jsonData)));
     }
 
-    function svg(uint256 tokenId) public pure returns (bytes memory) {
+    function svg(uint256 tokenId) internal pure returns (bytes memory) {
         return abi.encodePacked(
             "<svg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'>",
             defs(tokenId),
@@ -43,7 +43,7 @@ library Renderer {
         );
     }
 
-    function defs(uint256 tokenId) public pure returns (bytes memory) {
+    function defs(uint256 tokenId) internal pure returns (bytes memory) {
         uint256 h = uint256(keccak256(abi.encodePacked(tokenId)));
         uint256 cx = h % 100;
         uint256 cy = (h >> 8) % 100;
@@ -64,11 +64,11 @@ library Renderer {
         );
     }
 
-    function gradientStop(uint256 v, uint256 i) public pure returns (string memory) {
+    function gradientStop(uint256 v, uint256 i) internal pure returns (string memory) {
         return string(abi.encodePacked("<stop offset='", LibString.toString(i), "%' stop-color='", color(v), "' />"));
     }
 
-    function color(uint256 v) public pure returns (string memory) {
+    function color(uint256 v) internal pure returns (string memory) {
         v = v % 8;
         if (v == 0) return "red";
         if (v == 1) return "deeppink";
@@ -80,7 +80,7 @@ library Renderer {
         else return "cyan";
     }
 
-    function styles() public pure returns (bytes memory) {
+    function styles() internal pure returns (bytes memory) {
         return abi.encodePacked(
             "<style>",
             ".tokenId{font-family:monospace;font-size:0.4em;text-anchor:middle;alignment-baseline:middle;font-size:0.7em;font-weight:bold}",
