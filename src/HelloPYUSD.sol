@@ -13,7 +13,7 @@ contract HelloPYUSD is ERC721, Owned {
     ERC20 public immutable mintToken;
     uint256 public immutable mintPrice;
 
-    constructor(address _mintToken, uint256 _mintPrice) ERC721("HelloPYUSD", "HIPYPL") Owned(msg.sender) {
+    constructor(address _mintToken, uint256 _mintPrice) ERC721("HelloPYUSD", "HIPYUSD") Owned(msg.sender) {
         mintToken = ERC20(_mintToken);
         mintPrice = _mintPrice;
     }
