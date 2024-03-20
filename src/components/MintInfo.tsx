@@ -6,9 +6,9 @@ import { usePaymentTokenAddress } from "../hooks/paymentToken";
 
 export default function MintInfo() {
   const account = useAccount();
-  const erc20 = usePaymentTokenAddress();
-  const token = useToken(erc20);
-  const balance = useTokenBalance(erc20, account.address);
+  const paymentToken = usePaymentTokenAddress();
+  const token = useToken(paymentToken);
+  const balance = useTokenBalance(paymentToken, account.address);
   const mintPrice = useMintPrice();
   const totalIssued = useTotalIssued();
 
