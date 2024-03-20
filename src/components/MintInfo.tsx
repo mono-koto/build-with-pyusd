@@ -12,23 +12,41 @@ export default function MintInfo() {
   const mintPrice = useMintPrice();
   const totalIssued = useTotalIssued();
 
-  const formattedMintPrice =
-    token.data && mintPrice.isSuccess
-      ? formatUnits(mintPrice.data, token.data.decimals)
-      : "Loading...";
+  // If the token query has not loaded, display a loading message or error.
+  if (!token.data) {
+    return (
+      <div className='text-sm opacity-50'>
+        {token.error?.message || "Loading..."}
+      </div>
+    );
+  }
+
+  // We format the mint price and user balance using the token's decimals and Viem's formatUnits function.
+  // If the mint price or user balance is still loading, we display a loading message.
+
+  const formattedMintPrice = mintPrice.isSuccess
+    ? formatUnits(mintPrice.data, token.data.decimals)
+    : mintPrice.isPending
+    ? "Loading..."
+    : mintPrice.status;
+
+  const formattedUserBalance = balance.isSuccess
+    ? formatUnits(balance.data, token.data.decimals)
+    : balance.isPending
+    ? "Loading..."
+    : mintPrice.status;
+
+  // If the total issued query has loaded, we display the total minted tokens.
 
   const totalMinted = totalIssued.isSuccess
     ? totalIssued.data.toString()
-    : "Loading...";
-
-  const formattedUserBalance =
-    token.data && balance.isSuccess
-      ? formatUnits(balance.data, token.data.decimals)
-      : "Loading...";
+    : totalIssued.isPending
+    ? "Loading..."
+    : mintPrice.status;
 
   return (
     <div className='grid grid-cols-2 gap-1 text-sm opacity-50'>
-      <span>{token.data?.symbol} Price</span>
+      <span>{token.data.symbol} Price</span>
       <span className='text-right'>{formattedMintPrice}</span>
 
       <span>Total Minted</span>
@@ -36,7 +54,7 @@ export default function MintInfo() {
 
       {account.isConnected && (
         <>
-          <span>{token.data?.symbol} Balance</span>
+          <span>{token.data.symbol} Balance</span>
           <span className='text-right'>{formattedUserBalance}</span>
         </>
       )}
