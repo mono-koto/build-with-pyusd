@@ -626,11 +626,11 @@ function tokenURI(uint256 tokenId) public pure override returns (string memory) 
 
 We now have some nice SVG renders that are different with every token. Some examples:
 
+![](./HIPYPL-1.svg)
+
 ![](./HIPYPL-2.svg)
 
-![](./HIPYPL-123.svg)
-
-![](./HIPYPL-42.svg)
+![](./HIPYPL-3.svg)
 
 ## Deploying
 
