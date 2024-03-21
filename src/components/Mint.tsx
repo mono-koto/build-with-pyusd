@@ -1,6 +1,7 @@
 import MintPreview from "./MintPreview";
 import MintInfo from "./MintInfo";
 import MintButton from "./MintButton";
+import OwnerActions from "./OwnerActions";
 
 export default function Mint() {
   return (
@@ -11,6 +12,7 @@ export default function Mint() {
       <div className='w-full md:w-2/5 space-y-4'>
         <MintButton />
         <MintInfo />
+        <OwnerActions />
       </div>
     </div>
   );
