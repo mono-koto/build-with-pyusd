@@ -17,6 +17,12 @@ export default function App() {
           <HelloPyusd />
           <Toaster
             toastOptions={{
+              success: {
+                icon: "🌈",
+              },
+              error: {
+                icon: "🔥",
+              },
               position: "bottom-right",
               duration: 5000,
               style: {

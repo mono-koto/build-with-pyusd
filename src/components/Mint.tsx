@@ -1,5 +1,6 @@
 import MintPreview from "./MintPreview";
 import MintInfo from "./MintInfo";
+import MintButton from "./MintButton";
 
 export default function Mint() {
   return (
@@ -8,7 +9,7 @@ export default function Mint() {
         <MintPreview />
       </div>
       <div className='w-full md:w-2/5 space-y-4'>
-        {/* <MintButton /> */}
+        <MintButton />
         <MintInfo />
       </div>
     </div>
