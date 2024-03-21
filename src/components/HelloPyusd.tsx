@@ -1,5 +1,6 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Mint from "./Mint";
+import Footer from "./Footer";
 
 export default function HelloPyusd() {
   return (
@@ -14,6 +15,7 @@ export default function HelloPyusd() {
       <div className='flex-1'>
         <Mint />
       </div>
+      <Footer />
     </div>
   );
 }
