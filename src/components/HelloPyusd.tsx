@@ -1,10 +1,16 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Mint from "./Mint";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet-async";
 
 export default function HelloPyusd() {
   return (
     <div className='container max-w-4xl p-4 md:p-8 mx-auto flex flex-col min-h-screen gap-8'>
+      <Helmet>
+        <title>Hello PYUSD!</title>
+        <meta name='description' content='Open edition PYUSD NFT' />
+        <link rel='canonical' href='https://hi.pyusd.to' />
+      </Helmet>{" "}
       <nav className='flex flex-row gap-4 items-center justify-between'>
         <div>
           <h1 className='text-xl font-black'>Hello PYUSD!</h1>
