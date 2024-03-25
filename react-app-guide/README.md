@@ -215,7 +215,7 @@ See that weird `VITE_WALLETCONNECT_PROJECT_ID` variable above? That's pulled in 
 
 Once we have our Project ID, let's creat a `.env` file in the root of our project and add it there:
 
-```env
+```
 VITE_WALLETCONNECT_PROJECT_ID=your-project-id
 ```
 
