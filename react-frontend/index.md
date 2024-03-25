@@ -51,7 +51,7 @@ Once the dependencies install and the `dev` script runs, you'll see a message li
 
 Go ahead and open that URL in your browser (port may differ if you're using `5173` for something else). You should see a simple React app with a counter:
 
-![alt text](<CleanShot 2024-03-14 at 12.03.12@2x.png>)
+![alt text](./assets/<CleanShot 2024-03-14 at 12.03.12@2x.png>)
 
 This is our starting point! Remember to set up git and commit your changes:
 
@@ -211,7 +211,7 @@ We'll notice in our browser console that we're getting a `No projectId found` er
 
 See that weird `VITE_WALLETCONNECT_PROJECT_ID` variable above? That's pulled in as an environment variable, and it is a WalletConnect Project ID necessary to use Rainbow in its default configuration. We can get our Project ID by signing up at [WalletConnect Cloud](https://cloud.walletconnect.com) and creating a new project. You can leave it in "draft" mode for the purposes of this walkthrough:
 
-![alt text](<CleanShot 2024-03-14 at 13.22.44.gif>)
+![alt text](./assets/<CleanShot 2024-03-14 at 13.22.44.gif>)
 
 Once we have our Project ID, let's creat a `.env` file in the root of our project and add it there:
 
@@ -228,7 +228,7 @@ And let's add it to our `.gitignore` file:
 
 Here's what we have now:
 
-![alt text](<CleanShot 2024-03-14 at 14.01.30.gif>)
+![alt text](./assets/<CleanShot 2024-03-14 at 14.01.30.gif>)
 
 Let's commit our changes:
 
@@ -556,7 +556,7 @@ https://github.com/mono-koto/HelloPYUSD-frontend/blob/a593df9550c2421c6053172b46
 
 You should now see a preview of the token you're about to mint in your app!
 
-![alt text](<CleanShot 2024-03-20 at 13.57.47.gif>)
+![alt text](./assets/<CleanShot 2024-03-20 at 13.57.47.gif>)
 
 #### `MintInfo.tsx`
 

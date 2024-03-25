@@ -3,15 +3,16 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Building with PYUSD",
+
   description:
     "Guides and walkthroughs to help builders use PYUSD in their smart contracts and web3 apps",
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      // { text: "Home", link: "/" },
-      // { text: "React", link: "/react-app-guide/README" },
-      // { text: "React", link: "/react-app-guide/README" },
+      { text: "Home", link: "/" },
+      { text: "Smart Contract", link: "/smart-contract/" },
+      { text: "Frontend", link: "/react-frontend/" },
     ],
 
     sidebar: [
@@ -55,13 +56,14 @@ export default defineConfig({
         text: "PYUSD on the frontend",
         collapsed: true,
 
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
+        items: [{ text: "Introduction", link: "/react-frontend/" }],
       },
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/mono-koto" }],
   },
+  sitemap: {
+    hostname: "https://build.pyusd.to",
+  },
+  lastUpdated: true,
 });

@@ -11,7 +11,7 @@ hero:
       link: /smart-contract/
     - theme: alt
       text: Frontend guide
-      link: /api-examples
+      link: /react-frontend/
 features:
   - title: 🍜 Soup to nuts
     details: From setting up your env to deploying your first smart contract and frontend
