@@ -32,7 +32,7 @@ You'll need a few things before we get going:
 
 We'll use the [Vite](https://vitejs.dev/) build tool to scaffold and build our application. For React + Typescript, we can use the `react-ts` template.
 
-```bash
+```shell
 npx create-vite@latest hello-pyusd-app --template react-ts
 cd hello-pyusd-app
 npm install
@@ -41,7 +41,7 @@ npm run dev
 
 Once the dependencies install and the `dev` script runs, you'll see a message like this:
 
-```bash
+```shell
   VITE v5.1.6  ready in 290 ms
 
   ➜  Local:   http://localhost:5173/
@@ -55,7 +55,7 @@ Go ahead and open that URL in your browser (port may differ if you're using `517
 
 This is our starting point! Remember to set up git and commit your changes:
 
-```bash
+```shell
 git init
 git add .
 git commit -m "Initial commit"
@@ -65,7 +65,7 @@ git commit -m "Initial commit"
 
 We'll use [Tailwind CSS](https://tailwindcss.com/) to style our app. Following the [Tailwind Vite Guide](https://tailwindcss.com/docs/guides/vite), we can add it to our project with the following command:
 
-```bash
+```shell
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
@@ -125,7 +125,7 @@ https://github.com/mono-koto/HelloPYUSD-frontend/blob/e031d7db74eca4a8691fef0885
 
 Let's commit our changes:
 
-```bash
+```shell
 git add .
 git commit -m "Add tailwind, remove default styles, add HelloPyusd component"
 ```
@@ -140,7 +140,7 @@ We'll use a popular Web3 connection library called [RainbowKit](https://www.rain
 
 Following [RainbowKit's guide](https://www.rainbowkit.com/docs/installation), we'll install the package and set up the connection.
 
-```bash
+```shell
 npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
 ```
 
@@ -221,7 +221,7 @@ VITE_WALLETCONNECT_PROJECT_ID=your-project-id
 
 And let's add it to our `.gitignore` file:
 
-```bash
+```shell
 // .gitignore
 .env
 ```
@@ -232,7 +232,7 @@ Here's what we have now:
 
 Let's commit our changes:
 
-```bash
+```shell
 git add .
 git commit -m "Add RainbowKit, set up WalletConnect, add ConnectButton"
 ```
@@ -604,7 +604,7 @@ Show a loading message in a disabled button.
 
 Before we get into all that, let's pull in a nice "toast" library to display temporary messages to the user. We'll use [React Hot Toast](https://react-hot-toast.com/), a simple and customizable toast library.
 
-```bash
+```shell
 npm install react-hot-toast
 ```
 
