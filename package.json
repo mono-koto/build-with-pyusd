@@ -1,7 +1,8 @@
 {
   "name": "build-with-pyusd",
   "workspaces": [
-    "docs"
+    "docs",
+    "frontend"
   ],
   "version": "1.0.0",
   "description": "These docs are intended to help you get started with the PYUSD, PayPay's stablecoin.",
