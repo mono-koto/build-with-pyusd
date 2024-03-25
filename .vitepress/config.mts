@@ -56,7 +56,17 @@ export default defineConfig({
         text: "PYUSD on the frontend",
         collapsed: true,
 
-        items: [{ text: "Introduction", link: "/react-frontend/" }],
+        items: [
+          { text: "Introduction", link: "/react-frontend/" },
+          { text: "Tailwind", link: "/react-frontend/02-tailwind" },
+          { text: "Web3 Stack", link: "/react-frontend/03-web3-stack" },
+          { text: "Config", link: "/react-frontend/04-config" },
+          { text: "Hooks", link: "/react-frontend/05-hooks" },
+          { text: "Layout", link: "/react-frontend/06-layout" },
+          { text: "Mint Preview", link: "/react-frontend/07-mint-preview" },
+          { text: "Mint Info", link: "/react-frontend/08-mint-info" },
+          { text: "Mint Button", link: "/react-frontend/09-mint-button" },
+        ],
       },
     ],
 
