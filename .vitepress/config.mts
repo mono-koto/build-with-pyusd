@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Building with PYUSD",
+  title: "Build with PYUSD",
 
   description:
     "Guides and walkthroughs to help builders use PYUSD in their smart contracts and web3 apps",

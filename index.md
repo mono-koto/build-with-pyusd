@@ -3,8 +3,11 @@
 layout: home
 
 hero:
-  name: "PYUSD for builders"
+  name: "Build with PYUSD"
   tagline: Guides, sample projects, and resources for builders using PYUSD
+  # image:
+  #   src: /build-pyusd-logo.svg
+  #   alt: VitePress
   actions:
     - theme: brand
       text: Smart contract guide
