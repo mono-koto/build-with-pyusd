@@ -14,13 +14,13 @@ hero:
       text: Frontend guide
       link: /react-frontend/
 features:
-  - title: Soup to nuts
-    icon: 🍜
+  - title: Real projects
+    icon: 🦾
     details: From setting up your env to deploying your first smart contract and frontend
-  - title: Working projects
+  - title: For builders
     icon: 🧰
     details: We provide working sample projects and deployments to get you started
-  - title: Extensible
+  - title: Open + extensible
     icon: 📚
     details: Content and projects are MIT licensed. Remix, reuse, or contribute back.
 ---

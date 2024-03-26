@@ -2,7 +2,7 @@
 
 We're excited to have you here! We've built this site as a community resource for builders using [PYUSD](https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd). Here you'll find guides, sample projects, and resources to help you get started building with PYUSD.
 
-## 🍜 Real projects
+## 🦾 Real projects
 
 We've created some real world projects that use PYUSD, and these guides will walk you through building them yourself.
 
