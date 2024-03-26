@@ -9,6 +9,7 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: "/hipyusd-sm.svg",
     nav: [
       { text: "Home", link: "/" },
       { text: "Overview", link: "/overview/" },
@@ -109,4 +110,5 @@ export default defineConfig({
     hostname: "https://build.pyusd.to",
   },
   lastUpdated: true,
+  head: [["link", { rel: "icon", href: "/hipyusd-sm.svg" }]],
 });
