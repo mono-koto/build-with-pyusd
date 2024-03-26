@@ -11,19 +11,28 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Smart Contract", link: "/smart-contract/" },
+      { text: "Getting started", link: "/getting-started/" },
+      { text: "Smart contracts", link: "/smart-contract/" },
       { text: "Frontend", link: "/react-frontend/" },
     ],
 
     sidebar: [
       {
-        text: "PYUSD in smart contracts",
+        text: "Getting Started",
+        collapsed: true,
+        items: [
+          { text: "Introduction", link: "/getting-started/" },
+          { text: "PYUSD", link: "/getting-started/pyusd" },
+        ],
+      },
+      {
+        text: "Smart contracts",
         collapsed: true,
         items: [
           { text: "Introduction", link: "/smart-contract/" },
           { text: "Getting set up", link: "/smart-contract/01-setup" },
           {
-            text: "First Solidity",
+            text: "First solidity",
             link: "/smart-contract/02-first-contract",
           },
           {
@@ -39,7 +48,7 @@ export default defineConfig({
             link: "/smart-contract/05-accept-pyusd",
           },
           {
-            text: "Rendering Onchain",
+            text: "Onchain rendering",
             link: "/smart-contract/06-onchain-rendering",
           },
           {

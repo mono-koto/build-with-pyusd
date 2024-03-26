@@ -4,10 +4,7 @@ layout: home
 
 hero:
   name: "Build with PYUSD"
-  tagline: Guides, sample projects, and resources for builders using PYUSD
-  # image:
-  #   src: /build-pyusd-logo.svg
-  #   alt: VitePress
+  tagline: Community guides, sample projects, and resources for PYUSD builders
   actions:
     - theme: brand
       text: Smart contract guide
@@ -16,10 +13,13 @@ hero:
       text: Frontend guide
       link: /react-frontend/
 features:
-  - title: 🍜 Soup to nuts
+  - title: Soup to nuts
+    icon: 🍜
     details: From setting up your env to deploying your first smart contract and frontend
-  - title: 🧰 Working projects
+  - title: Working projects
+    icon: 🧰
     details: We provide working sample projects and deployments to get you started
-  - title: 📚 Extensible
+  - title: Extensible
+    icon: 📚
     details: Content and projects are MIT licensed. Remix, reuse, or contribute back.
 ---

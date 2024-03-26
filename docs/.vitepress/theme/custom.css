@@ -1,0 +1,20 @@
+:root {
+  --vp-c-indigo-1: #0079c1;
+  --vp-c-indigo-2: #0079c1;
+  --vp-c-indigo-3: #00598d;
+  --vp-c-indigo-soft: #00457c;
+}
+
+.dark {
+  --vp-c-indigo-1: #81b8d9;
+  --vp-c-indigo-2: #0079c1;
+  --vp-c-indigo-3: #00457c;
+  --vp-c-indigo-soft: #00457c;
+}
+
+:root {
+  --vp-c-brand-1: var(--vp-c-indigo-1);
+  --vp-c-brand-2: var(--vp-c-indigo-2);
+  --vp-c-brand-3: var(--vp-c-indigo-3);
+  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+}
