@@ -38,7 +38,7 @@ export const wagmiConfig = getDefaultConfig({
   projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID,
   chains: [sepolia, localhost],
   transports: {
-    [localhost.id]: http("http://localhost:8545"),
     [sepolia.id]: http(import.meta.env.VITE_SEPOLIA_RPC_URL),
+    [localhost.id]: http("http://localhost:8545"),
   },
 });

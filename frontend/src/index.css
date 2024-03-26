@@ -21,7 +21,6 @@ a {
   @apply disabled:opacity-50;
 }
 
-/* #region mintButton  */
 .mintButton {
   @apply w-full border-2 border-zinc-800 text-xl p-3 transition-colors;
   @apply hover:enabled:bg-zinc-800 hover:enabled:text-zinc-300;
@@ -29,7 +28,6 @@ a {
   @apply active:enabled:border-yellow-400 active:enabled:bg-yellow-400 active:text-zinc-800;
   @apply disabled:opacity-50;
 }
-/* #endregion */
 
 footer p {
   @apply overflow-ellipsis overflow-hidden;
