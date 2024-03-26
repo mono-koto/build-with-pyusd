@@ -5,6 +5,7 @@ layout: home
 hero:
   name: "Build with PYUSD"
   tagline: Community guides, sample projects, and resources for PYUSD builders
+  image: /hipyusd.svg
   actions:
     - theme: brand
       text: Smart contract guide
