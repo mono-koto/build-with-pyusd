@@ -11,18 +11,35 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Getting started", link: "/getting-started/" },
+      { text: "Overview", link: "/overview/" },
       { text: "Smart contracts", link: "/smart-contract/" },
       { text: "Frontend", link: "/react-frontend/" },
+      {
+        text: "Links",
+        items: [
+          {
+            text: "PayPal PYUSD Docs",
+            link: "https://www.paypal.com/us/cshelp/article/paypal-usd-pyusd-developer-documentation-ts2280",
+          },
+          {
+            text: "Paxos PYUSD Docs",
+            link: "https://docs.paxos.com/stablecoin/pyusd",
+          },
+          { text: "Mono Koto", link: "https://mono-koto.com/" },
+          { text: "Garden Labs", link: "https://gardenlabs.xyz" },
+        ],
+      },
     ],
 
     sidebar: [
       {
-        text: "Getting Started",
+        text: "Overview",
         collapsed: true,
         items: [
-          { text: "Introduction", link: "/getting-started/" },
-          { text: "PYUSD", link: "/getting-started/pyusd" },
+          { text: "Introduction", link: "/overview/" },
+          { text: "PYUSD", link: "/overview/pyusd" },
+          { text: "Audits", link: "/overview/audits" },
+          { text: "Contracts", link: "/overview/contracts" },
         ],
       },
       {
@@ -81,7 +98,12 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [{ icon: "github", link: "https://github.com/mono-koto" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/mono-koto/build-with-pyusd" },
+    ],
+    search: {
+      provider: "local",
+    },
   },
   sitemap: {
     hostname: "https://build.pyusd.to",
