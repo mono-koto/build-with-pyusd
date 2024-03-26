@@ -173,12 +173,31 @@ export default function MintButton() {
     );
   }
 
+  console.log(
+    nativeBalance.data,
+    mintPrice.data,
+    paymentToken.data,
+    paymentTokenBalance.data,
+    gasPrice.isSuccess
+  );
+
   // If any of the queries are still loading, we'll display a loading message
   if (
-    !nativeBalance.data ||
-    !mintPrice.data ||
-    !paymentToken.data ||
-    !paymentTokenBalance.data ||
+    nativeBalance.isError ||
+    mintPrice.isError ||
+    paymentToken.isError ||
+    paymentTokenBalance.isError ||
+    gasPrice.isError
+  ) {
+    return <MintButtonView disabled>Error loading data...</MintButtonView>;
+  }
+
+  // If any of the queries are still loading, we'll display a loading message
+  if (
+    !nativeBalance.isSuccess ||
+    !mintPrice.isSuccess ||
+    !paymentToken.isSuccess ||
+    !paymentTokenBalance.isSuccess ||
     !gasPrice.isSuccess
   ) {
     return <MintButtonView disabled>Loading...</MintButtonView>;
@@ -210,7 +229,7 @@ export default function MintButton() {
   if (paymentTokenBalance.data < mintPrice.data) {
     return (
       <MintButtonView disabled>
-        Insufficient {paymentToken.data.symbol}
+        Insufficient {paymentToken.data?.symbol}
       </MintButtonView>
     );
   }

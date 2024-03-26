@@ -1,8 +1,14 @@
-# Build a React app that uses PYUSD to mint NFTs
+# Use PYUSD in a frontend app
 
 Let's build a simple Typescript React-based frontend that lets a user connect their wallet and interact with a smart contract that accepts PYUSD.
 
 ## What are we building?
+
+![Preview](./assets/preview.png)
+
+[Full project is available on GitHub](https://github.com/mono-koto/build-with-pyusd/)
+
+## Use cases
 
 Here are the basic use cases we're going to cover in this walkthrough:
 

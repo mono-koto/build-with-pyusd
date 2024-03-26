@@ -1,12 +1,52 @@
-#### `MintPreview.tsx`
+# Previewing the Mint
 
-We'll build this as a relatively simple `<div>` that is square and displays the image of the next token to be minted.
+Let's start with our `MintPreview` component. This will show a preview of the NFT the user will mint.
 
-https://github.com/mono-koto/HelloPYUSD-frontend/blob/a593df9550c2421c6053172b463d11bb4db5a58a/src/components/MintPreview.tsx
+## MintPreview component
 
-We'll create a separate subcomponent, `TokenImage`, to handle the image display.
+We'll create a new file, `src/components/MintPreview.tsx`. We'll build this as a relatively simple `<div>` that is square and displays the image of the next token to be minted.
 
-https://github.com/mono-koto/HelloPYUSD-frontend/blob/a593df9550c2421c6053172b463d11bb4db5a58a/src/components/TokenImage.tsx
+```tsx
+import { useTotalIssued } from "../hooks/helloPyusd";
+import TokenImage from "./TokenImage";
+
+export default function MintPreview() {
+  const { data: totalIssued, error } = useTotalIssued();
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <div className='text-sm text-gray-500 h-auto aspect-square flex flex-row items-center justify-center'>
+      {totalIssued !== undefined ? (
+        <TokenImage tokenId={totalIssued + 1n} />
+      ) : (
+        <div>Loading Token ID...</div>
+      )}
+    </div>
+  );
+}
+```
+
+You'll notice we are:
+
+- Importing the `useTotalIssued` hook from `helloPyusd.ts`.
+- Using the `useTotalIssued` hook to get the total number of tokens minted.
+- Displaying the token image of the next token to be minted.
+
+## TokenImage component
+
+We'll create that `TokenImage` to handle the image display:
+
+<<< @/../frontend/src/components/TokenImage.tsx
+
+Here we are:
+
+- Using our `useMetadata` hook to get the metadata for the token.
+- Using the metadata to display the image of the token.
+
+## How it should look
 
 You should now see a preview of the token you're about to mint in your app!
 

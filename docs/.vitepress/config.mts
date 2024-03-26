@@ -17,7 +17,7 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "Use PYUSD Onchain",
+        text: "PYUSD in smart contracts",
         collapsed: true,
         items: [
           { text: "Introduction", link: "/smart-contract/" },
@@ -66,6 +66,8 @@ export default defineConfig({
           { text: "Mint Preview", link: "/react-frontend/07-mint-preview" },
           { text: "Mint Info", link: "/react-frontend/08-mint-info" },
           { text: "Mint Button", link: "/react-frontend/09-mint-button" },
+          { text: "Owner Withdraw", link: "/react-frontend/10-owner-withdraw" },
+          { text: "Wrapping Up", link: "/react-frontend/11-wrapping-up" },
         ],
       },
     ],

@@ -4,7 +4,8 @@ We're now ready to turn our web2 frontend into a web3 app!
 
 We'll use a popular Web3 connection library called [RainbowKit](https://www.rainbowkit.com/) to connect to the user's wallet. RainbowKit is straightforward to integrate and supports almost all major wallets.[^connect-libs]
 
-[^connect-libs]: Some similar modern options are [Web3Modal](https://web3modal.com/), [Family ConnectKit](https://docs.family.co/connectkit).
+> [!NOTE] Connection Kits
+> Besides [RainbowKit](https://www.rainbowkit.com/), similar modern connection options are [Web3Modal](https://web3modal.com/), [Family ConnectKit](https://docs.family.co/connectkit).
 
 Following [RainbowKit's guide](https://www.rainbowkit.com/docs/installation), we'll install the package and set up the connection.
 
@@ -19,7 +20,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
-import { mainnet, sepolia, localhost } from "wagmi/chains";
+import { sepolia, localhost } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import HelloPyusd from "./components/HelloPyusd";
 ```
@@ -32,7 +33,7 @@ Now let's configure RainbowKit. We'll use the `getDefaultConfig` function to spe
 const config = getDefaultConfig({
   appName: "Hello PYUSD",
   projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID,
-  chains: [mainnet, sepolia, localhost],
+  chains: [sepolia, localhost],
 });
 ```
 
@@ -44,7 +45,7 @@ const queryClient = new QueryClient();
 
 Now we can wrap our app in the RainbowKit, Wagmi, and QueryClient providers:
 
-```tsx
+```tsx{3-9}
 export default function App() {
   return (
     <WagmiProvider config={config}>
@@ -60,7 +61,7 @@ export default function App() {
 
 And let's edit our `HelloPyusd` component to show a button for connecting/disconnecting:
 
-```tsx
+```tsx{1,7}
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function HelloPyusd() {
@@ -104,3 +105,13 @@ Let's commit our changes:
 git add .
 git commit -m "Add RainbowKit, set up WalletConnect, add ConnectButton"
 ```
+
+## Running anvil
+
+We can run a local fork of the blockhain using the `anvil` command. This will allow us to test our app with a local blockchain.
+
+```shell
+anvil --fork-url YOUR_RPC_URL --chain-id 1337
+```
+
+In this project, we're forking sepolia.

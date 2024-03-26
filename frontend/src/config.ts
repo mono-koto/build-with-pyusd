@@ -1,6 +1,6 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { Address, Chain, http } from "viem";
-import { sepolia, localhost, mainnet } from "viem/chains";
+import { localhost, mainnet, sepolia } from "viem/chains";
 
 export function paymentTokenAddress(chain: Chain | undefined): Address {
   switch (chain) {
@@ -25,7 +25,7 @@ export function helloPyusdAddress(chain: Chain | undefined): Address {
     case sepolia:
     case localhost:
       // use your own HelloPYUSD address, or this one!
-      return "0xc32ef01341487792201F6EFD908aB52CDC7b0775";
+      return "0xC3106f588711e4672c43D7C2dD9cE995BD44C231";
     default:
       throw new Error(`HelloPyusd address not configured for chain ${chain}`);
   }

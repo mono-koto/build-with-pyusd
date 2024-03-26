@@ -1,8 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Mint from "./Mint";
-import Footer from "./Footer";
 import { Helmet } from "react-helmet-async";
-import OwnerActions from "./OwnerActions";
+import Footer from "./Footer";
+import Mint from "./Mint";
 
 export default function HelloPyusd() {
   return (

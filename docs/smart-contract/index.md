@@ -1,6 +1,12 @@
-# Using PYUSD in smart contracts
+# Use PYUSD in smart contracts
 
 This guide is a quick introduction to "onchain" development with PYUSD, meaning integration in smart contracts.
+
+## What we'll build
+
+We will build a simple smart contract that accepts PYUSD as a fee to mint an NFT. This will allow users to mint NFTs using PYUSD. We will also display the NFT's image.
+
+[Full project is available on GitHub](https://github.com/mono-koto/build-with-pyusd/)
 
 ## Technology we'll cover
 
