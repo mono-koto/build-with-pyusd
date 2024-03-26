@@ -173,14 +173,6 @@ export default function MintButton() {
     );
   }
 
-  console.log(
-    nativeBalance.data,
-    mintPrice.data,
-    paymentToken.data,
-    paymentTokenBalance.data,
-    gasPrice.isSuccess
-  );
-
   // If any of the queries are still loading, we'll display a loading message
   if (
     nativeBalance.isError ||

@@ -1,15 +1,15 @@
+import { Helmet } from "react-helmet-async";
 import { useMetadata, useTotalIssued } from "../hooks/helloPyusd";
 import TokenImage from "./TokenImage";
-import { Helmet } from "react-helmet-async";
 
 export default function MintPreview() {
   const { data: totalIssued, error } = useTotalIssued();
 
+  const { data: metadata } = useMetadata((totalIssued || 0n) + 1n);
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  const { data: metadata } = useMetadata((totalIssued || 0n) + 1n);
 
   return (
     <div className='text-sm text-gray-500 h-auto aspect-square flex flex-row items-center justify-center'>

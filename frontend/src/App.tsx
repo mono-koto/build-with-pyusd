@@ -6,11 +6,11 @@ import {
   lightTheme,
 } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
 import { WagmiProvider } from "wagmi";
 import HelloPyusd from "./components/HelloPyusd";
 import { wagmiConfig } from "./config";
-import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 

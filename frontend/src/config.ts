@@ -25,7 +25,7 @@ export function helloPyusdAddress(chain: Chain | undefined): Address {
     case sepolia:
     case localhost:
       // use your own HelloPYUSD address, or this one!
-      return "0xC3106f588711e4672c43D7C2dD9cE995BD44C231";
+      return "0xc32ef01341487792201F6EFD908aB52CDC7b0775";
     default:
       throw new Error(`HelloPyusd address not configured for chain ${chain}`);
   }
@@ -38,7 +38,7 @@ export const wagmiConfig = getDefaultConfig({
   projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID,
   chains: [sepolia, localhost],
   transports: {
-    [sepolia.id]: http(import.meta.env.VITE_SEPOLIA_RPC_URL),
     [localhost.id]: http("http://localhost:8545"),
+    [sepolia.id]: http(import.meta.env.VITE_SEPOLIA_RPC_URL),
   },
 });
