@@ -44,57 +44,66 @@ export default defineConfig({
         ],
       },
       {
-        text: "Smart contracts",
+        text: "Guides",
         collapsed: true,
         items: [
-          { text: "Introduction", link: "/smart-contract/" },
-          { text: "Getting set up", link: "/smart-contract/01-setup" },
           {
-            text: "First solidity",
-            link: "/smart-contract/02-first-contract",
+            text: "Smart contracts",
+            collapsed: true,
+            items: [
+              { text: "Introduction", link: "/smart-contract/" },
+              { text: "Getting set up", link: "/smart-contract/01-setup" },
+              {
+                text: "First solidity",
+                link: "/smart-contract/02-first-contract",
+              },
+              {
+                text: "First test",
+                link: "/smart-contract/03-first-test",
+              },
+              {
+                text: "Write the NFT",
+                link: "/smart-contract/04-write-erc721",
+              },
+              {
+                text: "Accept PYUSD",
+                link: "/smart-contract/05-accept-pyusd",
+              },
+              {
+                text: "Onchain rendering",
+                link: "/smart-contract/06-onchain-rendering",
+              },
+              {
+                text: "Deploy to Sepolia",
+                link: "/smart-contract/07-deploy",
+              },
+              {
+                text: "Mint our NFT on Sepolia",
+                link: "/smart-contract/08-mint-nft",
+              },
+            ],
           },
           {
-            text: "First test",
-            link: "/smart-contract/03-first-test",
-          },
-          {
-            text: "Write the NFT",
-            link: "/smart-contract/04-write-erc721",
-          },
-          {
-            text: "Accept PYUSD",
-            link: "/smart-contract/05-accept-pyusd",
-          },
-          {
-            text: "Onchain rendering",
-            link: "/smart-contract/06-onchain-rendering",
-          },
-          {
-            text: "Deploy to Sepolia",
-            link: "/smart-contract/07-deploy",
-          },
-          {
-            text: "Mint our NFT on Sepolia",
-            link: "/smart-contract/08-mint-nft",
-          },
-        ],
-      },
-      {
-        text: "PYUSD on the frontend",
-        collapsed: true,
+            text: "Frontend",
+            collapsed: true,
 
-        items: [
-          { text: "Introduction", link: "/react-frontend/" },
-          { text: "Tailwind", link: "/react-frontend/02-tailwind" },
-          { text: "Web3 Stack", link: "/react-frontend/03-web3-stack" },
-          { text: "Config", link: "/react-frontend/04-config" },
-          { text: "Hooks", link: "/react-frontend/05-hooks" },
-          { text: "Layout", link: "/react-frontend/06-layout" },
-          { text: "Mint Preview", link: "/react-frontend/07-mint-preview" },
-          { text: "Mint Info", link: "/react-frontend/08-mint-info" },
-          { text: "Mint Button", link: "/react-frontend/09-mint-button" },
-          { text: "Owner Withdraw", link: "/react-frontend/10-owner-withdraw" },
-          { text: "Wrapping Up", link: "/react-frontend/11-wrapping-up" },
+            items: [
+              { text: "Introduction", link: "/react-frontend/" },
+              { text: "Tailwind", link: "/react-frontend/02-tailwind" },
+              { text: "Web3 Stack", link: "/react-frontend/03-web3-stack" },
+              { text: "Config", link: "/react-frontend/04-config" },
+              { text: "Hooks", link: "/react-frontend/05-hooks" },
+              { text: "Layout", link: "/react-frontend/06-layout" },
+              { text: "Mint Preview", link: "/react-frontend/07-mint-preview" },
+              { text: "Mint Info", link: "/react-frontend/08-mint-info" },
+              { text: "Mint Button", link: "/react-frontend/09-mint-button" },
+              {
+                text: "Owner Withdraw",
+                link: "/react-frontend/10-owner-withdraw",
+              },
+              { text: "Wrapping Up", link: "/react-frontend/11-wrapping-up" },
+            ],
+          },
         ],
       },
     ],
