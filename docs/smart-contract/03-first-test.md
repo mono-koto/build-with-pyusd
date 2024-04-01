@@ -1,12 +1,12 @@
 # Our first test
 
-Let's create a simple test suite for our contract. We can generate a scaffold using Foundry:
+Let's now create a simple test suite for our contract. We'll generate a scaffold using Foundry:
 
 ```shell
 forge generate test --contract-name HelloPYUSD
 ```
 
-Now go ahead and add our first test. The file will look like this:
+Now we'll write our first test. The file will look like this:
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -30,13 +30,13 @@ contract HelloPYUSDTest is Test {
 }
 ```
 
-If you're not already running a watched test, go ahead and start it, and verify that our test is bassing:
+If not already running a watched test, let's go ahead and start that process:
 
 ```shell
 forge test -vw
 ```
 
-Finally, let's commit our little test:
+Once our test paseses, let's commit our work:
 
 ```shell
 git add test/HelloPYUSD.t.sol

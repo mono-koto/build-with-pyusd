@@ -1,6 +1,6 @@
 # Solidity Contract
 
-Le'ts look at the first steps of creating a smart contract using Solidity. We'll be using the Foundry development toolkit to scaffold our project and run tests.
+We already used Foundry to initialize our projects. Now we'll write some code.
 
 ## Create a new smart contract
 
@@ -25,7 +25,7 @@ Let's now check if it builds:
 forge build
 ```
 
-It should! If not, make you copied the above correctly. Once it's building, let's now commit our work to git:
+It should! If not, make sure you copied the above correctly. Once it's building, let's commit our code to git:
 
 ```shell
 git add src/HelloPYUSD.sol

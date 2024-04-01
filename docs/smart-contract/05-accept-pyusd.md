@@ -1,12 +1,12 @@
 # Accept PYUSD
 
-Now that we have a basic ERC-721 contract, let's make it a bit more interesting by accepting PYUSD as payment for minting an NFT.
+We can now modify our free mint NFT so that it accepts PYUSD as payment.
 
 ## The PYUSD token
 
 PYUSD is an ERC-20 token. As protocol developers, all we need to know is its address, and we can pull it in and use it just like any other ERC-20.
 
-> [!NOTE]
+> [!NOTE] What is ERC-20
 > Similar to the ERC-721 we're building in this walkthrough, an ERC-20 token adheres to certain interface and behaviors to define a _fungible_ token. ERC stands for "Ethereum Request for Comments" and is a process by which essential standards are defined.
 
 Let's take note of the PYUSD addresses we'll need:
@@ -16,7 +16,7 @@ Let's take note of the PYUSD addresses we'll need:
 
 ## Mock token for testing
 
-We'll also create a mock PYUSD for local tests. Create a `test/MockPYUSD.sol` file that inherits from solmate's ERC20:
+When writing unit tests, we don't have a deployed version of PYUSD in our test runner's simulated blockchain. We'll create a mock PYUSD for local tests. Create a `test/MockPYUSD.sol` file that inherits from solmate's ERC20:
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -36,6 +36,9 @@ contract MockPYUSD is ERC20 {
 
 This is a simple ERC-20 contract that we can use to mint any number of tokens. We'll use this in our tests to simulate PYUSD.
 
+> [!NOTE]
+> For complex integrations, we can instead use forge's forking functionality to fork a live network, which lets us write our tests against the deployed contract logic and state.
+
 Let's now commit our `MockPYUSD.sol` contract:
 
 ```shell
@@ -45,14 +48,17 @@ git commit -m 'add MockPYUSD ERC-20 contract for local tests'
 
 ## How to accept PYUSD
 
-Unlike native ETH values which can be specified as part of a call to a function, ERC-20s require a two step process to be transferred as part of contract calls:
+Unlike native ETH values which can be specified as the `value` part of a call to a function, ERC-20s require a two step process to be transferred as part of contract calls:
 
-1. Token holder _approves_ a spender and a maximum amount (allowance) available to be transferred by that spender.
-2. Token holder makes a call to _transfer_ an amount (no greater than the allowance amount).
+1. Token holder _approves_ a spender (the contract) a maximum amount (allowance) available to be spent.
+2. Token holder makes a call the spender, which then _transfers_ an amount from the holder.
+
+> [!NOTE] "Pull" payments
+> This pattern is sometimes referred to as _pull payments_; the payee _pulls_ the value from the payer.
 
 ## TDDing the payment process
 
-We'll now modify our test a bit so that our `testMint()` function checks the mint price and approves our mock PYUSD to be spent by the `mint()` function.
+We can modify our test so that our `testMint()` function checks the mint price and approves our mock PYUSD to be spent by the `mint()` function.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -107,15 +113,15 @@ contract HelloPYUSD is ERC721 {
     uint256 public totalIssued;
 
     ERC20 public immutable mintToken;
-    uint256 public immutable mintPrice;
+    uint256 public immutable mintPrice;  // [!code highlight]
 
-    constructor(address _mintToken, uint256 _mintPrice) ERC721("HelloPYUSD", "HIPYPL") {
+    constructor(address _mintToken, uint256 _mintPrice) ERC721("HelloPYUSD", "HIPYPL") {  // [!code highlight]
         mintToken = ERC20(_mintToken);
-        mintPrice = _mintPrice;
+        mintPrice = _mintPrice;  // [!code highlight]
     }
 
     function mint() external {
-        mintToken.transferFrom(msg.sender, address(this), mintPrice);
+        mintToken.transferFrom(msg.sender, address(this), mintPrice);  // [!code highlight]
         _mint(msg.sender, ++totalIssued);
     }
 
@@ -125,9 +131,10 @@ contract HelloPYUSD is ERC721 {
 }
 ```
 
-Now our tests are passing again. Lovely!
+Now our tests should be passing again. Lovely!
 
-The behavior of the ERC-20 token depends on how it is implemented. Correctly implemented ERC-20s will now allow insufficient balances to be spent, nor will allow spenders to go over their allowance.
+> [!NOTE]
+> The behavior of the ERC-20 token depends on how it is implemented. Correctly implemented ERC-20s will now allow insufficient balances to be spent, nor will allow spenders to go over their allowance.
 
 While it's outside the purview of our own contract (and is the responsibility of PYUSD, which of course does everything correctly), if you want to see these error cases in action, you can add some failure tests:
 
@@ -150,9 +157,9 @@ git commit -am 'accept ERC-20 token for mint payment'
 
 ## Who gets the PYUSD?
 
-You may notice that in the contract we've created, all the PYUSD is deposited to the contract itself. Once there, it's never usable for anything, so it's essentially lost! There's currently no way for an actual human to receive it.
+In the contract we've created, all the PYUSD is deposited to the contract itself. Once there, it's never usable for anything, so it's essentially locked away! There's currently no way for an actual human to receive it.
 
-Let's fix thi by letting an owner withdraw ETH and ERC-20s from this contract. In our tests, let's add failing tests:
+Let's fix this by letting an owner withdraw ETH and ERC-20s from this contract. In our tests, let's add failing tests:
 
 ```solidity
 function testOwnerWithdrawToken() public {

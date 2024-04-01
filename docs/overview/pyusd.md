@@ -20,7 +20,7 @@ The contract has an `owner` address that can reclaim any PYUSD balance held by t
 
 ### Asset protection
 
-The contract has "freeze" functions – `freeze`, `unfreeze`, `wipeFrozenAddress`, and `isFrozen` – available to a designated `assetProtectionRole` address. These functions allow the `assetProtectionRole` to freeze and unfreeze any address, and to wipe the balance of any frozen address. Currently the owner and asset protection roles are the same address.
+The contract has "freeze" functions – `freeze`, `unfreeze`, `wipeFrozenAddress`, and `isFrozen` – available to a designated `assetProtectionRole` address. These functions allow the `assetProtectionRole` to freeze and unfreeze any address, and to wipe the balance of any frozen address. As of this documentation, the owner and asset protection roles are the same address.
 
 ### Supply control
 

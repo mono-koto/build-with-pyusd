@@ -1,6 +1,6 @@
 # Mint our NFT
 
-We don't have a UI yet (see the next guide!), so a simple way to test out our contract is to mint via the command line via cast. Let's do it.
+We don't have a UI yet (see the [next guide](../react-frontend/)!), so a simple way to test out our contract is to mint via the command line via cast. We'll use our deployer account, since we already have its key in our keystore.
 
 > [!TIP] Get Sepolia PYUSD
 >
@@ -31,6 +31,8 @@ cast call --rpc-url sepolia 0x4F3Fcba5af502c8c5A4274FA71e9d07eB0bdf099 "mintPric
 
 (use your own contract address here, or you can use the above deployed one)
 
+Here we're making the `mintPrice()` call to our contract, and we're piping it through the `cast to-dec` formatter to format the result nicely.
+
 We get back a result of `1000000`, which is 1 PYUSD. So far so good!
 
 ## Approve HelloPYUSD to spend some PYUSD
@@ -46,9 +48,11 @@ cast send \
   1000000
 ```
 
+Similar to above, but this time we're calling the `approve` function and we're passing arguments: the spender (our HelloPYUSD contract) and the amount (one PYUSD).
+
 ## Mint!
 
-Let's now tell PYUSD that it is OK if our contract spends our PYUSD:
+We can now tell HelloPYUSD to mint! It will transfer our one PYUSD, and in return we'll get a HelloPYUSD NFT.
 
 ```shell
 cast send \
@@ -56,3 +60,7 @@ cast send \
   --rpc-url sepolia 0x4F3Fcba5af502c8c5A4274FA71e9d07eB0bdf099 \
   "mint()"
 ```
+
+# Congrats!
+
+You've written and deployed your own PYUSD-paid NFT, and you've minted via the command line! In the [next guide](../react-frontend/) we'll cover writing a frontend that makes calls to the PYUSD smart contract as well as our own HelloPYUSD smart contract.

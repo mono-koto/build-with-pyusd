@@ -4,16 +4,14 @@ You've probably heard of NFTs! Well, now we're going to write an NFT smart contr
 
 Most NFTs on Ethereum adhere to the ERC-721 standard, meaning that the smart contract must have specific functions with specific behaviors.
 
-> [!NOTE]
+> [!NOTE] What is ERC-721?
 > ERC stands for "Ethereum Request for Comments" and is a process by which essential standards are defined. An ERC-721 token is a non-fungible token (NFT) that adheres to a specific interface and behaviors. Being non-fungible, each token has a unique ID that makes it distinct from all other tokens.
 
 ## Implementation
 
-Rather than implement an ERC-721 standard from scratch, smart contract developers typically leverage existing codebases.
+We're going to inherit from an audited, minimal ERC-721 solidity implementation from the [solmate project](https://github.com/transmissions11/solmate).
 
-In our particular case we're going to inherit from an audited, minimal ERC-721 solidity implementation from the [solmate project](https://github.com/transmissions11/solmate).
-
-We'll add this dependency via forge:
+We'll add the dependency via forge:
 
 ```shell
 $ forge install transmissions11/solmate
@@ -46,17 +44,17 @@ contract HelloPYUSD is ERC721 {
 
 In the above, we:
 
-1. Import `ERC721` contract, which we inherit from
-2. Add storage for `totalIssued` to keep track of the count/
+1. Import `ERC721` contract, which we inherit from.
+2. Add storage for `totalIssued` to keep track of the count.
 3. Adjust our constructor to call the `ERC721` constructor to set our NFT's name to `Hello PYUSD` and its symbol to `HIPYPL`.
 4. Add a `mint` function that lets the caller mint the next ID, incrementing `totalIssued`.
 5. Implement the abstract `tokenURI` function to just return an empty string (for now).
 
-Notice we are not yet accepting payment! But that's ok, we'll get there.
+Notice we are not yet accepting payment! That's ok, we'll get there.
 
 ## Testing our mint function
 
-Let's now go back to our tests and add some testing for the mint function. Add the following to your test suite:
+Let's go back to our tests and add some testing of our new mint function by adding the following to our test file:
 
 ```solidity
 function testMint() public {
@@ -66,7 +64,7 @@ function testMint() public {
 }
 ```
 
-We now see that the balance of the caller – `address(this)` – is `1`, and the `totalIssued()` is also `1`. Yay, so far so good!
+We are ensuring that the balance of the caller – `address(this)` – is `1`, and the `totalIssued()` is also `1`. Yay, so far so good!
 
 Let's commit our work:
 

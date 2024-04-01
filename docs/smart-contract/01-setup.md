@@ -1,6 +1,8 @@
 # Setup
 
-## Alchemy RPC Endpoint (or similar)
+There are a few key bits of setup we need to do before we can get started.
+
+## RPC Endpoint (Alchemy or similar)
 
 We'll need an Ethereum RPC endpoint for the Sepolia test network. You can sign up for an account and create a unique RPC endpoint using one of the popular services. Suggestions:
 

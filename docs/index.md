@@ -16,11 +16,11 @@ hero:
 features:
   - title: Real projects
     icon: 🦾
-    details: From setting up your env to deploying your first smart contract and frontend
+    details: From setting up your env to writing your smart contracts and frontend
   - title: For builders
     icon: 🧰
-    details: We provide working sample projects and deployments to get you started
+    details: Instruction + examples. Working sample projects and deployments to get started fast
   - title: Open + extensible
     icon: 📚
-    details: Content and projects are MIT licensed. Remix, reuse, or contribute back.
+    details: Content and projects are MIT licensed – hack and reuse.
 ---

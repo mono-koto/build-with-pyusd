@@ -1,6 +1,8 @@
 # Deploying
 
-So we have our tested ERC721 contract with onchain rendering. Mints are paid for with PYUSD, and an owner can withdraw. How do we deploy? And how do we test our deploy?
+So we have our tested ERC721 contract with onchain rendering. Mints are paid for with PYUSD, and an owner can withdraw.
+
+But how do we deploy?
 
 There are a few ways to deploy with Foundry, but one nice way to do this is by writing a script that _broadcasts_ the necessary transactions to create the contract.
 
@@ -66,11 +68,14 @@ mainnet = { key = "${ETHERSCAN_API_KEY}", chain = "mainnet" }
 
 ## Create a wallet
 
-We'll now create a new wallet and import it into a keystore. The `cast` command, included with Foundry, makes this pretty easy.
+A contract deployment is just a certain type of transaction, and we need to pay transaction fees. We'll create cresh wallet that we can fund, and we will import it into a keystore so it will be encrypted at rest.
 
-If you already have a hardware wallet you'd like to use, refer to the `forge script` docs.
+The `cast` command, included with Foundry, makes this pretty easy.
 
-To create a random wallet:
+> [!NOTE] Bring your own wallet
+> If you have a hardware wallet you'd like to use, refer to the `forge script` docs.
+
+To create a fresh wallet:
 
 ```shell
 cast wallet new
@@ -89,7 +94,7 @@ In either case, the private key will be printed out alongside the public key add
 >
 > If we end up using this code on mainnet, it would be a good idea to transfer ownership of the contract once deployed. Or even better, modify the contract to take an owner in the constructor.
 
-Write that private key down, clear your terminal, then invoke the following
+Write that private key down somewhere safe, clear your terminal, then invoke the following
 
 ```shell
 mkdir -p keystore
@@ -101,6 +106,8 @@ You'll be prompted to enter your private key and a password to encrypt the key. 
 ```
 `deployer` keystore was saved successfully. Address: 0x222256573674aefe5A38eB358e076aE90E3Be9Ea
 ```
+
+Now your private key is encrypted in a local keystore. Keep track of that password, since you'll need to provide it wherenever we use that wallet.
 
 ## Fund the wallet
 
@@ -117,7 +124,7 @@ cast balance 0x222256573674aefe5A38eB358e076aE90E3Be9Ea --rpc-url sepolia
 
 ## Deploy
 
-We have a funded wallet, a script, and a contract. Let's deploy.
+We have a funded wallet on Sepolia, a script, and a contract. Let's deploy.
 
 ```shell
 PYUSD=0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9 \

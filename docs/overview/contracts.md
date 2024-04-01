@@ -13,4 +13,4 @@ Contracts are verified on Etherscan, and source code is available in the [paxosg
 
 ## Sepolia Testnet Faucet
 
-You can get PYUSD from the [Paxos Sepolia faucet](https://faucet.paxos.com/).
+Testnet PYUSD is available from the [Paxos Sepolia faucet](https://faucet.paxos.com/).

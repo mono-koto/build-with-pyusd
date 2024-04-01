@@ -14,8 +14,8 @@ The projects we've featured here are examples of what you can build with PYUSD. 
 
 ## 🧰 For builders
 
-These guides are for developers, builders, and hackers interested in building with PYUSD. We'll cover everything from setting up your development environment to deploying your first smart contract and frontend.
+Thee docs cover everything from setting up your development environment to deploying your first smart contract and writing a frontend.
 
 ## 📚 Open + Extensible
 
-All content and projects are MIT licensed. Remix, reuse, or contribute back to the community. We're excited to see what you build!
+All content and projects are MIT licensed. We're excited to see what you build!
